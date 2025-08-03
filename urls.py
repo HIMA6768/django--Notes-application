@@ -1,29 +1,18 @@
-"""
-URL configuration for projectbody project.
+from django .urls import path
+from .views import homepage,about,notesave,notedelete,noteedit,updatenote,viewnote,signup,saveuser,loginuser,loginchk,logoutuser
+urlpatterns=[
+    path("",homepage,name="homepage"),
+    path("about",about,name="about"),
+    path("notes",notesave,name="notesave"),
+    path("delete/<int:id>",notedelete,name="delete"),
+    path("editnote/<int:id>",noteedit,name="edit"),
+    path("updatenote/<int:id>",updatenote,name="update"),
+    path("viewnote/<int:id>",viewnote,name="view"),
+    path("signup",signup,name='signup'),
+    path("saveuser",saveuser,name="saveuser"),
+    path("login",loginuser,name="login"),
+    path("loginchk",loginchk,name="loginchk"),
+    path("logout",logoutuser,name="logout")
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path,include
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("",include('home.urls')),
-    path("page2",include('page2.urls'))
-    
 ]
-from django.conf import settings
-from django.conf.urls.static import static
-
-
