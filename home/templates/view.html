@@ -1,0 +1,20 @@
+{% extends "basic.html" %}
+{% block title%}
+view
+{% endblock %}
+{% block content%}
+<div class="container py-5">
+    <div class="card shadow p-4">
+      <h2 class="mb-4 text-center">{{ view.name }}</h2>
+      <p class="fs-5 text-muted">{{ view.description }}</p>
+
+       {% if view.image %}
+       <div>
+    <img src="{{ view.image.url }}" class="card-img-top rounded" alt="Note Image" style="max-height: 300px; object-fit: contain;">
+       </div>
+  {% endif %}
+  <br>
+      <a class="btn btn-sm btn-outline-dark"href="{% url "edit" id=view.id%}">Edit</a>
+  </div>
+
+{% endblock %}
